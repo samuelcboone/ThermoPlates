@@ -5,7 +5,7 @@ The workflow requires an input .csv file with the longitude and latitude of ther
 
 The workflow consists of the following scripts:
 
-- 00_Thermochronology_Data_Characteristics.sh - Determines the longitude-latitude ranges of samples in the dataset, the age range constrained by the thermal history model data, the range in paleotemperatures, and the range of cooling rates. It also generates a histogram of cooling rates across the dataset (Fig. ED1 in Boone et al., 2025). 
+- 00_Thermochronology_Data_Characteristics.sh - Determines the longitude-latitude ranges of samples in the dataset, the age range constrained by the thermal history model data, the range in paleotemperatures, and the range of cooling rates. It also generates a histogram of cooling rates across the dataset (Fig. ED1 in Boone et al., 2025).
 
 - 01_Thermochronology_Assessment.sh - Makes a series of 2D and 3D scatter plots to examine potential relationships between cooling rates through time versus defined region or sub-region, and versus longitude or latitude (ED2). The code also makes 3D lon-lat-cooling rate figures for each million-year time step (Vid. S1) and static 4D lon-lat-time-cooling rate plots (Figs. 1d & 1e in Boone et al., 2025). 
 
