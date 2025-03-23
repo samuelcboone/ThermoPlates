@@ -22,7 +22,7 @@ cd $directory_name || exit 1
 
 
 # Define thermodata variable based on input cooling histroy data
-thermodata=../data_V4.csv 
+thermodata=../Example_data_Central_Asia.csv
 
 # Create new file thermodata.xyz which lists all of the sample modern latitudes ($1), modern longitudes ($2), names ($3), ages ($4), paleotemperature ($6) and cooling rates ($7), then remove first row of data with column headers
 awk -F "\"*,\"*" '{print $1, $2, $3, $4, $6, $7}' $thermodata | sed '1d'> thermodata.xyz
