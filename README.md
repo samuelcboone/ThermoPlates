@@ -28,3 +28,5 @@ The workflow consists of the following scripts:
 - 05_Loop_Plot.sh - Uses the series of thermochron_master_${age}.xyz files created in 03_Thermochron_GPlates.sh for every modelling time step and creates three different scatter plots of cooling rate versus time coloured by (i) dynamic topography, (ii) change in dynamic topography, and (iii) paleoprecipitaton rate across the entire input thermochronology dataset. 
 
 - 99_Animator.sh - Can be placed in a directory of figures from multiple time slices (like those made in some of the above script) to make a combined animation (e.g., Vids. S1-S4 in Boone et al., 2025).
+
+Note: Data for the Central Asian example published in Boone et al. (2025) can be found in the Supplementary Data of that paper.
