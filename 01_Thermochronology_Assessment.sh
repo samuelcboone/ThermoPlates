@@ -61,16 +61,17 @@ gmt makecpt -Chaxby -T18/25/1 > altairegions.cpt
 
 
 
-# Define thermodata variable based on input cooling histroy data
-thermodata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4.csv 
-tianshandata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Tian_Shan.csv # Data from Tian Shan region
-hamountainsdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Ha_Mts.csv # Data from Ha-erh-lik'o Mts region
-centraluzbekdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Central_Uzbekistan.csv # Data from Central Uzbekistan region
-junggardata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Junggar_Basin.csv # Data from Junggar Basin region
-gobihamidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Gobi-Hami.csv # Data from Gobi-Hami Basins region
-altaidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Altai.csv # Data from Altai region
-siberiadata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Siberia.csv # Data from Siberian Plains region
+# Define thermodata variable based on input cooling histroy data. 
+thermodata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Central_Asia.csv.csv 
+tianshandata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Tian_Shan.csv # Data from Tian Shan region
+hamountainsdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Ha_Mts.csv # Data from Ha-erh-lik'o Mts region
+centraluzbekdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Central_Uzbekistan.csv # Data from Central Uzbekistan region
+junggardata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Junggar_Basin.csv # Data from Junggar Basin region
+gobihamidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Gobi-Hami.csv # Data from Gobi-Hami Basins region
+altaidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Altai.csv # Data from Altai region
+siberiadata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Siberia.csv # Data from Siberian Plains region
 
+# Note, reconstructed fault files were made in GPlates
 faults_static=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Faults/reconstructed_0.00Ma.gmt
 afead_faults_static=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/AFEAD_Faults/AFEAD_v2022/reconstructed_0.00Ma.gmt
 
