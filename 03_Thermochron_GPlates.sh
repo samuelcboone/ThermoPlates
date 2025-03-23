@@ -48,8 +48,8 @@ region=d # -180/180/-90/90
 projection=W30/15c # 30 deg E, 15 wide plot
 
 # Load and make colour palettes to be used for different maps
-age_grid_cpt=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/agegrid_maria_2021.cpt
-topo_cpt=/Volumes/T7/Work/Central_Asia_Work/Thermochron_GPlates/ETOPO.cpt
+age_grid_cpt=agegrid_maria_2021.cpt
+topo_cpt=ETOPO.cpt
 
 gmt makecpt -Cdevon -T0/3/0.1 -Z -I > thermochron_v1.cpt # Z is continuous colour scale, I flips/inverts
 
@@ -107,14 +107,14 @@ echo -n > kinematics_master.xyz
 
 
 # Define thermodata variable based on input cooling history data
-thermodata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4.csv 
-tianshandata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Tian_Shan.csv # Data from Tian Shan region
-hamountainsdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Ha_Mts.csv # Data from Ha-erh-lik'o Mts region
-centraluzbekdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Central_Uzbekistan.csv # Data from Central Uzbekistan region
-junggardata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Junggar_Basin.csv # Data from Junggar Basin region
-gobihamidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Gobi-Hami.csv # Data from Gobi-Hami Basins region
-altaidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Altai.csv # Data from Altai region
-siberiadata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/data_V4_Siberia.csv # Data from Siberian Plains region
+thermodata=Example_data_Central_Asia.csv
+tianshandata=Example_data_Tian_Shan.csv # Data from Tian Shan region
+hamountainsdata=Example_data_Ha_Mts.csv # Data from Ha-erh-lik'o Mts region
+centraluzbekdata=Example_data_Central_Uzbekistan.csv # Data from Central Uzbekistan region
+junggardata=Example_data_Junggar_Basin.csv # Data from Junggar Basin region
+gobihamidata=Example_data_Gobi-Hami.csv # Data from Gobi-Hami Basins region
+altaidata=Example_data_Altai.csv # Data from Altai region
+siberiadata=Example_data_Siberia.csv # Data from Siberian Plains region
 
 # Create new file thermodata.xyz which lists all of the sample modern latitudes ($1), modern longitudes ($2), names ($3), ages ($4), paleotemperature ($6), cooling rates ($7), region ($8) and sub-region ($9), 
 # then remove first row of data with column headers.
@@ -144,10 +144,10 @@ awk -F "\"*,\"*" '{print $1, $2, $3, $4, $6, $7, $8, $9}' $siberiadata | sed '1d
 # Note, columns of new thermodata.xyz file are lat ($1), lon ($2), sample name ($3), time period/age ($4), paleotemperature ($5), cooling rate ($6), region ($7) and sub-region ($8)
 
 # Define kinematics variable
-kinematics_input=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Kinematics/SubductionVolumesAreaTable_clean_0_230Ma_4.csv
+kinematics_input=/Kinematics/SubductionVolumesAreaTable_clean_0_230Ma_4.csv
 
-static_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Faults/reconstructed_0.00Ma.gmt
-static_afead_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/AFEAD_Faults/AFEAD_v2022/reconstructed_0.00Ma.gmt
+static_faults=/Example_GPlates_Export_Central_Asia/Faults/reconstructed_0.00Ma.gmt
+static_afead_faults=/Example_GPlates_Export_Central_Asia/AFEAD_Faults/AFEAD_v2022/reconstructed_0.00Ma.gmt
 
 
 
@@ -156,7 +156,7 @@ static_afead_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Ex
 
 # First, make a xyz file of the locations of all thermochron samples in their present-day coordinates
 
-present_day_thermochron=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Thermochron_V4/Thermochron_QGIS_Export_reconstructed_0.00Ma.gmt
+present_day_thermochron=/Example_GPlates_Export_Central_Asia/Thermochron_V4/Thermochron_QGIS_Export_reconstructed_0.00Ma.gmt
 
 awk -F "|" '{
     if ($1 =="# @D0")
@@ -228,24 +228,24 @@ while (( $age <= 230 ))
     do
 
         # Define variables
-        infile=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Thermochron_V4/Thermochron_QGIS_Export_reconstructed_${age}.00Ma.gmt
-        terranes=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Terranes/reconstructed_${age}.00Ma.gmt
-        plate_boundaries=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Topologies/topology_platepolygons_${age}.00Ma.gmt
-        subduction_left=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Topologies/topology_subduction_boundaries_sL_${age}.00Ma.gmt
-        subduction_right=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Topologies/topology_subduction_boundaries_sR_${age}.00Ma.gmt
-        seafloor_age=/Volumes/T7/Central_Asia_Work/Zahirovic_etal_2022_Asia_Exhumation/Zahirovic_etal_2022_MantleFrame/Zahirovic_etal_2022_MantleFrame_netCDF/Zahirovic_etal_2022_MantleFrame_AgeGrid-${age}.nc
-        mesh=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Velocities_coarseMesh/velocity_${age}.00Ma.xy 
+        infile=/Example_GPlates_Export_Central_Asia/Thermochron_V4/Thermochron_QGIS_Export_reconstructed_${age}.00Ma.gmt
+        terranes=/Example_GPlates_Export_Central_Asia/Terranes/reconstructed_${age}.00Ma.gmt
+        plate_boundaries=/Example_GPlates_Export_Central_Asia/Topologies/topology_platepolygons_${age}.00Ma.gmt
+        subduction_left=/Example_GPlates_Export_Central_Asia/Topologies/topology_subduction_boundaries_sL_${age}.00Ma.gmt
+        subduction_right=/Example_GPlates_Export_Central_Asia/Topologies/topology_subduction_boundaries_sR_${age}.00Ma.gmt
+        seafloor_age=/Zahirovic_etal_2022_MantleFrame/Zahirovic_etal_2022_MantleFrame_netCDF/Zahirovic_etal_2022_MantleFrame_AgeGrid-${age}.nc
+        mesh=/Velocities_coarseMesh/velocity_${age}.00Ma.xy 
         dynamic_topography="../GMCM9c/InterpolatedDynTopo-gmcm9c/Interpolated_gmcm9c-${age}.nc"
-        dynamic_topo_gradient=$( ls /Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GMCM9c/DynTopoChange-gmcm9c/DynTopoChange-gmcm9c-*-${age}.nc)
-        eurasia=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Southern_Margin_Polygons_V4/reconstructed_${age}.00Ma.xy
-        precipitation=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Paleoprecipitation/raster_data_Valdes-Scotese-precip-m-per-year_${age}.00Ma.nc
-        topography=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Topography_broc/raster_data_etopo_6m_${age}.00Ma.nc
-        paleotopography_ice=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Paleotopography/i_402_2/reconstructed_${age}.00Ma.gmt
-        paleotopography_shallow_marine=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Paleotopography/sm_402_2/reconstructed_${age}.00Ma.gmt
-        paleotopography_land=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Paleotopography/lm_402_2/reconstructed_${age}.00Ma.gmt
-        paleotopography_mountains=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Paleotopography/m_402_2/reconstructed_${age}.00Ma.gmt
-        faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Faults/reconstructed_${age}.00Ma.gmt
-        afead_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/AFEAD_Faults/AFEAD_v2022/reconstructed_${age}.00Ma.gmt
+        dynamic_topo_gradient=$( ls /GMCM9c/DynTopoChange-gmcm9c/DynTopoChange-gmcm9c-*-${age}.nc)
+        eurasia=/Southern_Margin_Polygons_V4/reconstructed_${age}.00Ma.xy
+        precipitation=/Paleoprecipitation/raster_data_Valdes-Scotese-precip-m-per-year_${age}.00Ma.nc
+        topography=/Example_GPlates_Export_Central_Asia/Topography_broc/raster_data_etopo_6m_${age}.00Ma.nc
+        paleotopography_ice=/Example_GPlates_Export_Central_Asia/Paleotopography/i_402_2/reconstructed_${age}.00Ma.gmt
+        paleotopography_shallow_marine=/Example_GPlates_Export_Central_Asia/Paleotopography/sm_402_2/reconstructed_${age}.00Ma.gmt
+        paleotopography_land=/Example_GPlates_Export_Central_Asia/Paleotopography/lm_402_2/reconstructed_${age}.00Ma.gmt
+        paleotopography_mountains=/Example_GPlates_Export_Central_Asia/Paleotopography/m_402_2/reconstructed_${age}.00Ma.gmt
+        faults=/Example_GPlates_Export_Central_Asia/Faults/reconstructed_${age}.00Ma.gmt
+        afead_faults=/Example_GPlates_Export_Central_Asia/AFEAD_Faults/AFEAD_v2022/reconstructed_${age}.00Ma.gmt
 
 
 
