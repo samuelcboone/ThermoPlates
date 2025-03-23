@@ -61,19 +61,19 @@ gmt makecpt -Chaxby -T18/25/1 > altairegions.cpt
 
 
 
-# Define thermodata variable based on input cooling histroy data. 
-thermodata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Central_Asia.csv.csv 
-tianshandata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Tian_Shan.csv # Data from Tian Shan region
-hamountainsdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Ha_Mts.csv # Data from Ha-erh-lik'o Mts region
-centraluzbekdata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Central_Uzbekistan.csv # Data from Central Uzbekistan region
-junggardata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Junggar_Basin.csv # Data from Junggar Basin region
-gobihamidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Gobi-Hami.csv # Data from Gobi-Hami Basins region
-altaidata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Altai.csv # Data from Altai region
-siberiadata=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/Example_data_Siberia.csv # Data from Siberian Plains region
+# Define thermodata variable based on input cooling histroy data. !!! Make sure that you use the correct path to wherever you stored the input files !!!
+thermodata=/Example_data_Central_Asia.csv.csv 
+tianshandata=/Example_data_Tian_Shan.csv # Data from Tian Shan region
+hamountainsdata=/Example_data_Ha_Mts.csv # Data from Ha-erh-lik'o Mts region
+centraluzbekdata=/Example_data_Central_Uzbekistan.csv # Data from Central Uzbekistan region
+junggardata=/Example_data_Junggar_Basin.csv # Data from Junggar Basin region
+gobihamidata=/Example_data_Gobi-Hami.csv # Data from Gobi-Hami Basins region
+altaidata=/Example_data_Altai.csv # Data from Altai region
+siberiadata=/Example_data_Siberia.csv # Data from Siberian Plains region
 
 # Note, reconstructed fault files were made in GPlates
-faults_static=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Faults/reconstructed_0.00Ma.gmt
-afead_faults_static=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/AFEAD_Faults/AFEAD_v2022/reconstructed_0.00Ma.gmt
+faults_static=/Example_GPlates_Export_Central_Asia/Faults/reconstructed_0.00Ma.gmt
+afead_faults_static=/Example_GPlates_Export_Central_Asia/AFEAD_Faults/AFEAD_v2022/reconstructed_0.00Ma.gmt
 
 #key_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Key_Faults/USGS_Faults/master_shapefile.shp
 #key_afead_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Key_Faults/AFEAD_Faults/master_AFEAD_shapefile.shp
@@ -465,8 +465,8 @@ while (( $age <= 230 ))
         awk -v age=$age '$4 == age {print $2, $1, $6, $6}' thermodata.xyz > thermochronology_${age}.xyz
 
         # Make files for active faults for this time step
-        active_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Key_Faults/USGS_Faults/static_active_faults_uninterpolated_${age}.shp
-        active_afead_faults=/Volumes/T7/Central_Asia_Work/Thermochron_GPlates/GPlates_Export/Key_Faults/AFEAD_Faults/static_active_afead_faults_uninterpolated_${age}.shp
+        active_faults=/Example_GPlates_Export_Central_Asia/Key_Faults/USGS_Faults/static_active_faults_uninterpolated_${age}.shp
+        active_afead_faults=/Example_GPlates_Export_Central_Asia/Key_Faults/AFEAD_Faults/static_active_afead_faults_uninterpolated_${age}.shp
 
         # Convert .shp files to .gmt files
         ogr2ogr -f "GMT" active_faults_${age}.gmt $active_faults
